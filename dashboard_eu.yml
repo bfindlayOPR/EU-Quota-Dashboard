@@ -1,0 +1,41 @@
+name: Refresh EU quota dashboard
+
+on:
+  schedule:
+    - cron: "20 */4 * * *"   # every 4 hours (backup; cron-job.org is the primary trigger)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests beautifulsoup4
+      - run: python quota_dashboard_eu.py
+      - name: Commit daily backup (history_seed.json + history.csv)
+        run: |
+          git config user.name "quota-bot"
+          git config user.email "actions@github.com"
+          git add history_seed.json history.csv
+          git commit -m "history backup $(date -u +%F)" || echo "no changes to commit"
+          git push || echo "nothing to push"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4
