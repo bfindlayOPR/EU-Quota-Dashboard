@@ -16,6 +16,7 @@ Requires: requests, beautifulsoup4  ->  pip install requests beautifulsoup4
 
 import os
 import re
+import sys
 import json
 import time
 import html as htmllib
@@ -435,37 +436,104 @@ def pace_band(row):
     return "steady"
 
 
+RETRY_WAITS  = (5, 15, 45)   # seconds to wait between attempts
+HTTP_TIMEOUT = 60            # the EU site stalls; 30s was too tight
+
+
+def get_with_retry(sess, url, **kw):
+    """GET with backoff. The TARIC site regularly stalls mid-response; one
+    timeout used to kill the entire run. Raises the last error if all fail."""
+    kw.setdefault("timeout", HTTP_TIMEOUT)
+    last = None
+    for attempt, wait in enumerate((0,) + RETRY_WAITS):
+        if wait:
+            time.sleep(wait)
+        try:
+            r = sess.get(url, **kw)
+            r.raise_for_status()
+            return r
+        except Exception as e:
+            last = e
+            print("    attempt {} failed: {}".format(attempt + 1, e))
+    raise last
+
+
 def make_session():
     s = requests.Session()
     s.headers.update({"User-Agent": UA, "Accept-Language": "en"})
     # handshake: load the consultation page so we get a JSESSIONID cookie
-    s.get(BASE + "quota_consultation.jsp?Lang=en", timeout=30)
+    get_with_retry(s, BASE + "quota_consultation.jsp?Lang=en")
     return s
 
 
-def fetch_balance(sess, order):
-    """Return (balance_tonnes, origin) for an order number like '09.9801'."""
+def _parse_taric_date(s):
+    return datetime.strptime(s, "%d-%m-%Y").date()
+
+
+def fetch_balance(sess, order, on=None, debug=False):
+    """Return (balance_tonnes, origin) for an order number like '09.9801'.
+
+    TARIC lists ONE ROW PER QUOTA PERIOD, newest period FIRST. From roughly two
+    weeks before a quarter opens, two rows exist for the same order and the
+    not-yet-open one sorts above the live one. Taking the first match therefore
+    returned a full untouched allocation and every quota read 100%.
+
+    Verified on the live page, 20 Sep 2026, order 09.9801:
+        row 1   01-10-2026 -> 31-12-2026   160,573,740 kg   (not open yet)
+        row 2   01-07-2026 -> 30-09-2026     2,270,089 kg   (the live one)
+
+    Page columns: Order number | Origins | Start date | End date | Balance
+    So we read every row and keep the period that contains `on` (default today).
+    """
+    on = on or date.today()
     code = order.replace(".", "")
     url = (BASE + "quota_list.jsp?Lang=en&Code=" + code +
            "&Year=" + str(YEAR) + "&Expand=true&Offset=0")
-    r = sess.get(url, headers={"Referer": BASE + "quota_consultation.jsp?Lang=en"}, timeout=30)
-    r.raise_for_status()
+    r = get_with_retry(sess, url,
+                       headers={"Referer": BASE + "quota_consultation.jsp?Lang=en"})
     text = BeautifulSoup(r.text, "html.parser").get_text(" ", strip=True)
-    # find the segment for this order: "<code> <origins...> <dd-mm-yyyy> <dd-mm-yyyy> <balance> <Unit>"
-    # the QUOTA database prints the balance as a plain number, e.g. "47367661.683 Kilogram"
-    # (dot = decimal, no thousands separators).
-    m = re.search(code + r"\s+(.+?)\s+\d{2}-\d{2}-\d{4}\s+\d{2}-\d{2}-\d{4}\s+(\d+(?:\.\d+)?)\s*(Kilogram|Tonne|Ton|Litre|Piece|\w+)?", text)
-    if not m:
+
+    # "<code> <origins...> <dd-mm-yyyy> <dd-mm-yyyy> <balance> <Unit>"
+    # balance is a plain float, e.g. "47367661.683 Kilogram" (dot = decimal).
+    pat = (code + r"\s+(.+?)\s+(\d{2}-\d{2}-\d{4})\s+(\d{2}-\d{2}-\d{4})\s+"
+           r"(\d+(?:\.\d+)?)\s*(Kilogram|Tonne|Ton|Litre|Piece|\w+)?")
+
+    periods = []
+    for m in re.finditer(pat, text):
+        try:
+            start = _parse_taric_date(m.group(2))
+            end   = _parse_taric_date(m.group(3))
+            val   = float(m.group(4))
+        except ValueError:
+            continue
+        unit = (m.group(5) or "").lower()
+        if unit.startswith("kilogram"):
+            val /= 1000.0   # kilograms -> tonnes
+        periods.append({"origin": m.group(1).strip(), "start": start,
+                        "end": end, "val": round(val, 3)})
+
+    if debug:
+        print("  {}: {} period(s)".format(order, len(periods)))
+        for p in periods:
+            print("     {} -> {}  {} t".format(p["start"], p["end"], p["val"]))
+
+    if not periods:
         return None, None
-    origin = m.group(1).strip()
-    try:
-        val = float(m.group(2))   # already a plain float in the source
-    except ValueError:
-        return None, origin
-    unit = (m.group(3) or "").lower()
-    if unit.startswith("kilogram"):
-        val /= 1000.0   # kilograms -> tonnes
-    return round(val, 3), origin
+
+    # 1. the period that actually contains today
+    live = [p for p in periods if p["start"] <= on <= p["end"]]
+    if live:
+        return live[0]["val"], live[0]["origin"]
+
+    # 2. otherwise the most recent period that has already started
+    started = sorted((p for p in periods if p["start"] <= on),
+                     key=lambda p: p["start"])
+    if started:
+        return started[-1]["val"], started[-1]["origin"]
+
+    # 3. only future periods exist -> report nothing rather than a full
+    #    allocation. A visible gap beats a confidently wrong number.
+    return None, periods[0]["origin"]
 
 
 def build_rows():
@@ -1314,10 +1382,90 @@ function sortTable(k){ if(sortK===k) sortDir*=-1; else {sortK=k; sortDir=-1;} bu
     return tmpl.replace("%%META%%", meta_json)
 
 
+RISE_THRESHOLD = 10     # how many risen quotas before we call it a period change
+RISE_TOLERANCE = 1.05   # ignore rises under 5% (rounding / small corrections)
+MISSING_FRAC   = 0.25   # refuse if more than this share return no balance
+
+
+def sanity_check(rows, history):
+    """Return a list of reasons NOT to publish. Empty list means all good.
+
+    Quota balances only fall within a period. If a batch of them rise, the
+    script is almost certainly reading a different quota period - which is
+    exactly what happened on 15 Sep 2026 when TARIC published the Oct-Dec
+    period and it sorted above the live one, making every quota read 100%.
+
+    A genuine quarter rollover also makes balances rise, so that case is
+    recognised and allowed through: it is the only time the previous snapshot
+    sits BEFORE the start of the current quarter.
+    """
+    problems = []
+    today = date.today()
+    qstart, _qend, _qdays = quarter_bounds()
+
+    priors = sorted(d for d in history if d < today.isoformat())
+    if not priors:
+        return problems                      # nothing to compare against yet
+
+    prev_key = priors[-1]
+    try:
+        prev_date = date.fromisoformat(prev_key)
+    except ValueError:
+        prev_date = None
+    prev = history.get(prev_key) or {}
+
+    # Genuine rollover: last snapshot predates the current quarter. Expected.
+    if prev_date is not None and prev_date < qstart <= today:
+        print("Quarter rollover detected (last snapshot {} predates quarter "
+              "start {}) - balance rises expected, guard standing down."
+              .format(prev_date, qstart))
+        return problems
+
+    risen = []
+    for r in rows:
+        before = prev.get(r["order"])
+        now = r.get("balance")
+        if before is None or now is None:
+            continue
+        try:
+            before = float(before)
+        except (TypeError, ValueError):
+            continue
+        if before > 0 and now > before * RISE_TOLERANCE:
+            risen.append((r["order"], r.get("origin", ""), before, now))
+
+    if len(risen) >= RISE_THRESHOLD:
+        sample = "; ".join("{} ({}) {:.0f} -> {:.0f} t".format(*x) for x in risen[:5])
+        problems.append(
+            "{} quotas show a HIGHER balance than the snapshot of {}. Balances do "
+            "not rise within a period, so this is almost certainly the NEXT quota "
+            "period being read instead of the live one. Examples: {}"
+            .format(len(risen), prev_key, sample))
+
+    missing = [r for r in rows if r.get("balance") is None]
+    if rows and len(missing) > len(rows) * MISSING_FRAC:
+        problems.append(
+            "{} of {} quotas returned no balance (over {:.0f}%). The TARIC page "
+            "layout may have changed and the parser needs updating."
+            .format(len(missing), len(rows), MISSING_FRAC * 100))
+
+    return problems
+
+
 def main():
     print("Fetching live EU balances for {} quotas...".format(len(QUOTAS_EU)))
     rows = build_rows()
     history = load_prev_history()
+
+    # Refuse to publish if the numbers cannot be true. Runs before anything is
+    # written, so a bad run leaves the previous dashboard and history intact.
+    problems = sanity_check(rows, history)
+    if problems:
+        for p in problems:
+            print("GUARD: " + p, file=sys.stderr)
+        print("GUARD: refusing to publish. Nothing was written.", file=sys.stderr)
+        sys.exit(1)
+
     ref, ref_week = attach_changes(rows, history)
     os.makedirs(os.path.dirname(OUTPUT_HTML), exist_ok=True)
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
