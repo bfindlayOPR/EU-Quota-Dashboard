@@ -1003,6 +1003,10 @@ def load_prev_history():
             hist.update(r.json())   # live wins for any overlapping date
     except Exception as e:
         print("history load skipped:", e)
+    dropped = [d for d in BAD_SNAPSHOTS if hist.pop(d, None) is not None]
+    if dropped:
+        print("dropped {} known-bad snapshot(s): {}"
+              .format(len(dropped), ", ".join(sorted(dropped))))
     return hist
 
 
@@ -1382,9 +1386,21 @@ function sortTable(k){ if(sortK===k) sortDir*=-1; else {sortK=k; sortDir=-1;} bu
     return tmpl.replace("%%META%%", meta_json)
 
 
-RISE_THRESHOLD = 10     # how many risen quotas before we call it a period change
-RISE_TOLERANCE = 1.05   # ignore rises under 5% (rounding / small corrections)
-MISSING_FRAC   = 0.25   # refuse if more than this share return no balance
+RISE_THRESHOLD  = 10     # how many risen quotas before we call it a period change
+RISE_TOLERANCE  = 1.05   # ignore rises under 5% (rounding / small corrections)
+TOTAL_TOLERANCE = 1.02   # total book must also grow >2% to count as a period change
+MISSING_FRAC    = 0.25   # refuse if more than this share return no balance
+
+# Snapshots written while the script was reading the wrong quota period
+# (TARIC published the Oct-Dec period on 15 Sep 2026 and it sorted above the
+# live Jul-Sep one). Dropped on load so they cannot poison trends or movers.
+BAD_SNAPSHOTS = {
+    "2026-09-15",   # 71 of 283 quotas inflated
+    "2026-09-16",   # 168 of 283
+    "2026-09-17",   # 232 of 283
+    "2026-09-18",   # 232 of 283
+    "2026-09-19",   # 232 of 283
+}
 
 
 def sanity_check(rows, history):
@@ -1422,6 +1438,7 @@ def sanity_check(rows, history):
         return problems
 
     risen = []
+    tot_now = tot_prev = 0.0
     for r in rows:
         before = prev.get(r["order"])
         now = r.get("balance")
@@ -1431,16 +1448,24 @@ def sanity_check(rows, history):
             before = float(before)
         except (TypeError, ValueError):
             continue
+        tot_now += now
+        tot_prev += before
         if before > 0 and now > before * RISE_TOLERANCE:
             risen.append((r["order"], r.get("origin", ""), before, now))
 
-    if len(risen) >= RISE_THRESHOLD:
+    # Two conditions, both required. Individual quotas DO rise mid-quarter when
+    # the Commission returns unused volumes (e.g. 11 Sep 2026, 32 quotas rose)
+    # but the total across the book still falls on such a day. Only a period
+    # mix-up makes the WHOLE book gain tonnage at once.
+    total_grew = tot_prev > 0 and tot_now > tot_prev * TOTAL_TOLERANCE
+    if len(risen) >= RISE_THRESHOLD and total_grew:
         sample = "; ".join("{} ({}) {:.0f} -> {:.0f} t".format(*x) for x in risen[:5])
         problems.append(
-            "{} quotas show a HIGHER balance than the snapshot of {}. Balances do "
-            "not rise within a period, so this is almost certainly the NEXT quota "
-            "period being read instead of the live one. Examples: {}"
-            .format(len(risen), prev_key, sample))
+            "{} quotas show a HIGHER balance than the snapshot of {}, and total "
+            "remaining across the book ROSE from {:,.0f} t to {:,.0f} t. Balances "
+            "do not rise within a period, so this is almost certainly the NEXT "
+            "quota period being read instead of the live one. Examples: {}"
+            .format(len(risen), prev_key, tot_prev, tot_now, sample))
 
     missing = [r for r in rows if r.get("balance") is None]
     if rows and len(missing) > len(rows) * MISSING_FRAC:
