@@ -1,0 +1,27 @@
+name: Debug quota periods
+
+# Manual only. Click "Run workflow" in the Actions tab.
+# Reads from TARIC and prints. Commits nothing, publishes nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      orders:
+        description: "Order numbers, space separated (blank = defaults)"
+        required: false
+        default: ""
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install requests beautifulsoup4
+
+      - name: Dump quota periods
+        run: python debug_periods.py ${{ github.event.inputs.orders }}
