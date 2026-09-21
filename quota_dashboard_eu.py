@@ -367,6 +367,229 @@ QUOTAS_EU = [
     ("09.9497", "27", "United Kingdom (to Northern Ireland from other parts of the United Kingdom)", 190.57, 190.57, 190.57, 190.57),
 ]
 
+# ------------------------------------------------- anti-dumping measures
+# Mill-by-mill AD duties, keyed to safeguard category + origin. Compiled from
+# the OJ / EUR-Lex texts. Loaded from ad_measures.json beside this script; if
+# the file is missing the dashboard still builds, just without the AD column.
+
+AD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ad_measures.json")
+
+try:
+    with open(AD_FILE, encoding="utf-8") as _f:
+        _AD = json.load(_f)
+except Exception as _e:
+    print("anti-dumping data not loaded:", _e)
+    _AD = {"measures": [], "categoryMap": [], "compiled": "n/a"}
+
+AD_MEASURES = _AD.get("measures", [])
+AD_COMPILED = _AD.get("compiled", "n/a")
+
+AD_CATMAP = {}
+for _c in _AD.get("categoryMap", []):
+    for _k in _c["cat"].split("/"):
+        AD_CATMAP[_k.strip()] = _c
+
+# Our quota table spells some origins differently from the AD dataset.
+AD_ORIGIN_ALIASES = {
+    "viet nam": "Vietnam",
+    "united states": "USA",
+    "korea": "Korea",
+    "republic of korea": "Korea",
+    "turkey": "Türkiye",
+}
+
+# Residual / FTA lines: the goods' real origin is not the quota's origin, so a
+# single duty rate cannot be stated - the user picks the origin instead.
+AD_POOL_RE = re.compile(r"other countries|residual|^FTA Quota", re.I)
+
+
+def _ad_origin(origin):
+    o = (origin or "").strip()
+    return AD_ORIGIN_ALIASES.get(o.lower(), o)
+
+
+def ad_measures_for(cat, origin):
+    """Measures in force for this category, for one origin (or all if None)."""
+    o = None if origin is None else _ad_origin(origin).lower()
+    return [m for m in AD_MEASURES
+            if cat in m["cats"]
+            and (o is None or any(x.lower() == o for x in m["origins"]))
+            and not m["terminated"]]
+
+
+def ad_origins_for(cat):
+    s = set()
+    for m in AD_MEASURES:
+        if cat in m["cats"] and not m["terminated"]:
+            s.update(m["origins"])
+    return sorted(s)
+
+
+# AD dataset spelling -> the spelling used in the eligibility tables above.
+AD_TO_ELIG_NAME = {"Türkiye": "Turkiye", "Vietnam": "Viet Nam", "USA": "United States"}
+
+
+def ad_pool_origins(origin, cat):
+    """Which AD origins can actually clear through THIS pool.
+
+    A residual or FTA pool is not open to everyone: the CSQ pool only takes FTA
+    partners whose own quota is exhausted, and the residual excludes countries
+    that hold their own quota in that category. Offering the full AD list would
+    invite someone to price a duty for an origin that cannot use the line.
+    Falls back to the full list if eligibility is unknown for the category.
+    """
+    kind = origin_kind(origin)
+    catn = _cn(cat)
+    everyone = ad_origins_for(cat)
+
+    def eligible(table):
+        out = []
+        for o in everyone:
+            name = AD_TO_ELIG_NAME.get(o, o)
+            cats = table.get(name)
+            if cats and catn in cats:
+                out.append(o)
+        return out
+
+    def table_covers_cat(table):
+        """True if the table says anything at all about this category, so an
+        empty result means 'genuinely nobody' rather than 'we don't know'."""
+        return any(catn in cats for cats in table.values())
+
+    if kind == "csq":
+        allowed, known = eligible(CSQ_ELIG), table_covers_cat(CSQ_ELIG)
+    elif kind == "ftaother":
+        allowed, known = eligible(FTAOTHER_ELIG), table_covers_cat(FTAOTHER_ELIG)
+    elif kind == "other":
+        # residual: everyone EXCEPT those holding their own quota in this category
+        allowed = [o for o in everyone
+                   if catn not in OTHER_EXCL.get(AD_TO_ELIG_NAME.get(o, o), set())]
+        known = True
+    else:
+        return everyone, False
+
+    if not allowed and not known:
+        return everyone, False          # eligibility unknown - show all, flag it
+    return allowed, known
+
+
+def ad_badge(cat, origin):
+    """Small chip for the quota row's Anti-dumping column."""
+    if not AD_MEASURES:
+        return ""
+    pool = bool(AD_POOL_RE.search(origin or ""))
+    ms = ad_measures_for(cat, None if pool else origin)
+    if not ms:
+        return '<span class="ad-chip none">No AD</span>'
+    if pool:
+        allowed, _known = ad_pool_origins(origin, cat)
+        if not allowed:
+            return '<span class="ad-chip none">No AD</span>'
+        return '<span class="ad-chip warn">AD by origin &middot; {}</span>'.format(len(allowed))
+
+    rates, fixed, mip = [], False, False
+    for m in ms:
+        rt = re.sub(r"\([^)]*CVD[^)]*\)", "", m["rate"] or "")   # AD only, not CVD
+        if "EUR" in rt:
+            fixed = True
+        if re.search(r"MIP|import price", rt + " " + (m["form"] or ""), re.I):
+            mip = True
+        if "%" in rt:
+            rates += [float(x) for x in re.findall(r"\d+(?:\.\d+)?", rt)]
+
+    if rates:
+        lo, hi = min(rates), max(rates)
+        txt = "AD " + ("{:g}%".format(lo) if lo == hi else "{:g}-{:g}%".format(lo, hi))
+        cls = "crit" if hi >= 25 else "warn"
+    elif fixed:
+        txt, cls = "AD EUR/t", "crit"
+    elif mip:
+        txt, cls = "AD min price", "warn"
+    else:
+        txt, cls = "AD in force", "warn"
+    return '<span class="ad-chip {}">{}</span>'.format(cls, txt)
+
+
+def _ad_mill_table(ms):
+    out = []
+    for m in ms:
+        cls = ' class="ad-resid"' if m["residual"] else ""
+        flag = ' <span class="ad-flag">verify vs OJ</span>' if m["verify"] else ""
+        taric = (htmllib.escape(m["taric"]) if m["taric"]
+                 else '<span class="ad-todo">from Annex</span>')
+        out.append(
+            "<tr{}><td>{}{}</td><td class=\"ad-rate\">{}</td><td>{}</td>"
+            "<td class=\"mono\">{}</td><td class=\"mono\">{}</td><td>{}</td></tr>".format(
+                cls, htmllib.escape(m["mill"]), flag,
+                htmllib.escape(m["rate"] or "-"), htmllib.escape(m["form"] or "-"),
+                taric, htmllib.escape(m["reg"] or "-"),
+                htmllib.escape(m["status"] or "-")))
+    return ('<table class="ad-table"><tr><th>Producer / mill</th><th>Duty rate</th>'
+            '<th>Form</th><th>TARIC add\'l code</th><th>Regulation</th><th>Status</th>'
+            '</tr>' + "".join(out) + '</table>')
+
+
+AD_STACK = ('<div class="ad-stack">AD duty is <b>in addition to</b> the safeguard '
+            'out-of-quota duty and normal customs duty &mdash; it applies whether or '
+            'not this quota line still has room. Confirm the rate, duty form, TARIC '
+            'additional code and that the measure is still in force on EUR-Lex/TARIC '
+            'before pricing.</div>')
+
+
+def ad_note(origin, cat, rid):
+    """AD block shown inside the expanded detail row."""
+    if not AD_MEASURES:
+        return ""
+    pool = bool(AD_POOL_RE.search(origin or ""))
+    cm = AD_CATMAP.get(cat)
+
+    if pool:
+        origins, known = ad_pool_origins(origin, cat)
+        if not origins:
+            return ('<div class="ad"><div class="lbl">Anti-dumping</div>'
+                    'No AD measures in force for Cat ' + htmllib.escape(cat)
+                    + ' on any origin. Safeguard duty only.</div>')
+        sel = "adsel_" + rid
+        opts = "".join('<option value="{0}">{0}</option>'.format(htmllib.escape(o))
+                       for o in origins)
+        panes = "".join(
+            '<div class="ad-pane" data-o="{}"{}>{}</div>'.format(
+                htmllib.escape(o), "" if i == 0 else " hidden",
+                _ad_mill_table(ad_measures_for(cat, o)))
+            for i, o in enumerate(origins))
+        return ('<div class="ad"><div class="lbl">Anti-dumping</div>'
+                '<div class="ad-pick">Residual / FTA pool &mdash; the duty depends on '
+                'where the material was actually made. '
+                '<label for="' + sel + '">Origin of goods:</label> '
+                '<select class="ad-select" id="' + sel + '">' + opts + '</select>'
+                + ('' if known else '<div class="ad-other">Eligibility for this pool '
+                   'could not be resolved, so every origin with AD measures in this '
+                   'category is listed. Check the pool is actually open to the origin.'
+                   '</div>')
+                + '</div>'
+                '<div class="ad-panes">' + panes + '</div>' + AD_STACK + '</div>')
+
+    ms = ad_measures_for(cat, origin)
+    if not ms:
+        extra = ""
+        if cm and cm.get("origins") and cm["origins"] != "—":
+            extra = ('<div class="ad-other">Origins in this category that do carry AD: '
+                     + htmllib.escape(cm["origins"]) + '</div>')
+        return ('<div class="ad"><div class="lbl">Anti-dumping</div>'
+                '<span class="none">No AD measure</span> on '
+                + htmllib.escape(origin or "-") + ' for Cat ' + htmllib.escape(cat)
+                + '. Safeguard duty only.' + extra + '</div>')
+
+    return ('<div class="ad"><div class="lbl">Anti-dumping &mdash; {} measure{} on {}'
+            '</div>'.format(len(ms), "s" if len(ms) > 1 else "",
+                            htmllib.escape(origin or "-"))
+            + _ad_mill_table(ms)
+            + '<div class="ad-other">Shaded row = the residual &ldquo;all other '
+              'companies&rdquo; rate, which applies unless the mill has its own TARIC '
+              'additional code.</div>'
+            + AD_STACK + '</div>')
+
+
 # ------------------------------------------------------------------- fetch
 
 def current_quarter_index():
@@ -826,6 +1049,31 @@ footer{margin-top:26px;color:var(--mut);font-size:12px;}
 .navlink:hover{opacity:.9;}
 .chg-neg{color:var(--crit);font-weight:700;}
 .chg-pos{color:var(--ok);font-weight:700;}
+.ad-chip{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;}
+.ad-chip.crit{background:var(--crit-bg);color:var(--crit);}
+.ad-chip.warn{background:var(--warn-bg);color:var(--warn);}
+.ad-chip.none{color:var(--mut);border:1px solid var(--line);font-weight:600;}
+.ad{margin:2px 16px 14px;padding:11px 13px;background:var(--warn-bg);border:1px solid #f0d9ac;border-radius:9px;font-size:12.5px;line-height:1.55;}
+.ad .lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.3px;color:var(--mut);margin-bottom:5px;}
+.ad-pick{margin-bottom:8px;}
+.ad-pick label{font-weight:700;margin-left:4px;}
+.ad-select{font:inherit;font-size:12.5px;padding:3px 6px;border:1px solid #d9c49a;border-radius:6px;background:#fff;color:var(--ink);}
+.ad-table{margin:6px 0 0;font-size:12px;border-radius:7px;}
+.ad-table th{padding:6px 9px;font-size:10px;}
+.ad-table td{padding:6px 9px;}
+.ad-table .ad-rate{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.ad-table tr.ad-resid td{background:#fdf3e0;}
+.ad-flag{display:inline-block;margin-left:5px;padding:0 5px;border-radius:4px;background:#fff;border:1px solid #e0cba0;color:var(--warn);font-size:10px;font-weight:700;}
+.ad-todo{color:var(--mut);font-style:italic;}
+.ad-other{margin-top:7px;font-size:11.5px;color:var(--mut);}
+.ad-stack{margin-top:8px;padding-top:7px;border-top:1px dashed #e0cba0;font-size:11.5px;color:var(--mut);}
+.ad-stack b{color:var(--ink);}
+@media (max-width:680px){
+  .ad{margin:2px 8px 12px;}
+  .ad-table th:nth-child(3),.ad-table td:nth-child(3),
+  .ad-table th:nth-child(4),.ad-table td:nth-child(4),
+  .ad-table th:nth-child(5),.ad-table td:nth-child(5){display:none;}
+}
 </style></head>
 <body><div class="wrap">
 <div class="brandbar"><img src="https://oprgroup.co.uk/wp-content/uploads/2024/01/OPR-LOGO-WHITE.svg" alt="OPR Group"><span class="brandsub">Steel Quota Dashboard</span></div>
@@ -861,7 +1109,7 @@ footer{margin-top:26px;color:var(--mut);font-size:12px;}
 <thead><tr>
   <th>Origin</th><th>Order</th>
   <th class="num">Q base (t)</th><th class="num">Quota remaining (t)</th>
-  <th>% of base remaining</th><th>Pace</th>
+  <th>% of base remaining</th><th>Pace</th><th>Anti-dumping</th>
 </tr></thead>
 <tbody>
 %%TABLE%%
@@ -872,9 +1120,18 @@ Pace &amp; projections assume drawdown continues at the average rate since the q
 </div>
 <script>
 document.addEventListener('click',function(e){
+  if(e.target.closest('.ad-select')) return;   // don't collapse the row
   var row=e.target.closest('.qrow'); if(!row) return;
   var d=document.getElementById(row.getAttribute('data-t'));
   if(d) d.classList.toggle('show');
+});
+document.querySelectorAll('.ad-select').forEach(function(s){
+  s.addEventListener('click',function(e){ e.stopPropagation(); });
+  s.addEventListener('change',function(){
+    s.closest('.ad').querySelectorAll('.ad-pane').forEach(function(p){
+      p.hidden = (p.dataset.o !== s.value);
+    });
+  });
 });
 </script>
 </body></html>"""
@@ -925,9 +1182,10 @@ def build_html(rows):
                 + chg
                 + cell("Days left in quarter", str(r.get("days_left", "-")))
                 + cell("Quarter elapsed", qprog))
-        return ('<tr class="detail" id="' + rid + '"><td colspan="6">'
+        return ('<tr class="detail" id="' + rid + '"><td colspan="7">'
                 + '<div class="dgrid">' + grid + '</div>'
                 + '<div class="avail">' + availability_note(r["origin"], r["cat"]) + '</div>'
+                + ad_note(r["origin"], r["cat"], rid)
                 + '</td></tr>')
 
     rows_html = []
@@ -937,7 +1195,7 @@ def build_html(rows):
         return (int(mm.group(1)) if mm else 99, code)
     for (cat, catname), grp in sorted(groups.items(), key=catkey):
         head = htmllib.escape(cat + " - " + catname)
-        rows_html.append('<tr class="grouphead"><td colspan="6">' + head + '</td></tr>')
+        rows_html.append('<tr class="grouphead"><td colspan="7">' + head + '</td></tr>')
         for r in grp:
             b = band(r["pct"])
             rid = "d_" + r["order"].replace(".", "_")
@@ -949,6 +1207,7 @@ def build_html(rows):
                 + '<td class="num strong">' + fmt(r["balance"], 0) + '</td>'
                 + '<td class="barcell">' + bar(r) + '</td>'
                 + '<td>' + pace_chip(r) + '</td>'
+                + '<td>' + ad_badge(r["cat"], r["origin"]) + '</td>'
                 + '</tr>')
             rows_html.append(detail_row(r, rid))
     table = "\n".join(rows_html)
