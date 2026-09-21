@@ -1,0 +1,2459 @@
+{
+ "compiled": "2026-09-20",
+ "measures": [
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Brazil"
+   ],
+   "originLabel": "Brazil",
+   "mill": "ArcelorMittal Brasil / Aperam Inox América do Sul",
+   "rate": "EUR 54.50 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force (ext. Dec 2023, 5 yrs)",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Brazil"
+   ],
+   "originLabel": "Brazil",
+   "mill": "Companhia Siderúrgica Nacional (CSN)",
+   "rate": "EUR 53.40 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Brazil"
+   ],
+   "originLabel": "Brazil",
+   "mill": "Gerdau Açominas",
+   "rate": "EUR 55.80 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Brazil"
+   ],
+   "originLabel": "Brazil",
+   "mill": "Usiminas (Usinas Siderúrgicas de Minas Gerais)",
+   "rate": "EUR 63.00 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Brazil"
+   ],
+   "originLabel": "Brazil",
+   "mill": "All other companies",
+   "rate": "EUR 63.00 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Iran"
+   ],
+   "originLabel": "Iran",
+   "mill": "Mobarakeh Steel Company / all companies",
+   "rate": "EUR 57.50 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "PAO Severstal",
+   "rate": "EUR 17.60 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "NLMK (Novolipetsk Steel)",
+   "rate": "EUR 53.30 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "MMK (Magnitogorsk Iron & Steel Works)",
+   "rate": "EUR 96.50 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "All other companies",
+   "rate": "EUR 96.50 /t",
+   "form": "Fixed EUR/tonne",
+   "taric": "",
+   "reg": "2017/1795; ext. 2023/2758",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Ukraine"
+   ],
+   "originLabel": "Ukraine",
+   "mill": "(all producers) — TERMINATED Feb 2023",
+   "rate": "0",
+   "form": "—",
+   "taric": "",
+   "reg": "(lapsed)",
+   "status": "Terminated 2023 (measures lapsed)",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": true,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Egypt"
+   ],
+   "originLabel": "Egypt",
+   "mill": "Ezz Steel / all producers",
+   "rate": "11.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force (definitive Sep 2025)",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "Nippon Steel Corporation & others",
+   "rate": "30.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "JFE Steel Corp / Daido Steel",
+   "rate": "29.8%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "Tokyo Steel",
+   "rate": "6.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "All other companies",
+   "rate": "30.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Vietnam"
+   ],
+   "originLabel": "Vietnam",
+   "mill": "Formosa Ha Tinh Steel Corp & others",
+   "rate": "12.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Vietnam"
+   ],
+   "originLabel": "Vietnam",
+   "mill": "All other companies",
+   "rate": "12.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1919 (25 Sep 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "(all) — TERMINATED (no dumping)",
+   "rate": "0",
+   "form": "—",
+   "taric": "",
+   "reg": "(2025 investigation closed)",
+   "status": "Terminated 2025",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": true,
+   "residual": true
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Çolakoğlu Metalurji",
+   "rate": "7.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100 (5 Jul 2021)",
+   "status": "In force; expiry review opened Jul 2026",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Oyak Maden Metalurji (Erdemir & İsdemir)",
+   "rate": "4.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Habaş Sınai ve Tıbbi Gazlar",
+   "rate": "4.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Borçelik Çelik",
+   "rate": "5.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Ağır Haddecilik",
+   "rate": "5.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "1.A",
+    "1.B"
+   ],
+   "catLabel": "1.A/1.B",
+   "product": "HR flat (HRC)",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "All other companies",
+   "rate": "7.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/1100",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Cooperating sampled producers (e.g. Angang group)",
+   "rate": "~19.7–20.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "22.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "MMK (Magnitogorsk)",
+   "rate": "18.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "PAO Severstal",
+   "rate": "34.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "NLMK (Novolipetsk)",
+   "rate": "36.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "All other companies",
+   "rate": "36.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1328",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "All exporters",
+   "rate": "9.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force (definitive Aug 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "All exporters",
+   "rate": "28.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "China Steel Corp, Chung Hung Steel & cooperating",
+   "rate": "20.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "All other companies",
+   "rate": "27.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Tatmetal Çelik",
+   "rate": "5.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Other cooperating producers",
+   "rate": "7.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Borçelik Çelik / all other exporters",
+   "rate": "9.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Vietnam"
+   ],
+   "originLabel": "Vietnam",
+   "mill": "POSCO Vietnam & others",
+   "rate": "16.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Definitive 2026 (confirm reg no.)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "3.B"
+   ],
+   "catLabel": "3.B",
+   "product": "Grain-oriented electrical steel (GOES)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All producers",
+   "rate": "MIP scheme",
+   "form": "Min. import price (3 tiers ~€1,536 / €1,594 / €2,043 /t by max core loss)",
+   "taric": "",
+   "reg": "2015/1953; ext. 2022/58",
+   "status": "In force to ~2027",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "3.B"
+   ],
+   "catLabel": "3.B",
+   "product": "GOES",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "All producers",
+   "rate": "MIP scheme",
+   "form": "Min. import price",
+   "taric": "",
+   "reg": "2015/1953; ext. 2022/58",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "3.B"
+   ],
+   "catLabel": "3.B",
+   "product": "GOES",
+   "origins": [
+    "Korea"
+   ],
+   "originLabel": "Korea (Rep.)",
+   "mill": "All producers",
+   "rate": "MIP scheme",
+   "form": "Min. import price",
+   "taric": "",
+   "reg": "2015/1953; ext. 2022/58",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "3.B"
+   ],
+   "catLabel": "3.B",
+   "product": "GOES",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "All producers",
+   "rate": "MIP scheme",
+   "form": "Min. import price",
+   "taric": "",
+   "reg": "2015/1953; ext. 2022/58",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "3.B"
+   ],
+   "catLabel": "3.B",
+   "product": "GOES",
+   "origins": [
+    "USA"
+   ],
+   "originLabel": "USA",
+   "mill": "All producers",
+   "rate": "MIP scheme",
+   "form": "Min. import price",
+   "taric": "",
+   "reg": "2015/1953; ext. 2022/58",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic (corrosion-resistant) coated",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Named producers (HBIS/Hesteel, Shougang, Angang etc.)",
+   "rate": "below residual",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2018/186; renewed 2024/819",
+   "status": "In force (renewed 2024, 5 yrs)",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "~27.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2018/186; renewed 2024/819",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic (galvanised/HDG) coated",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "NLMK (Novolipetsk)",
+   "rate": "10.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395 (12 Aug 2022)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "PAO Severstal",
+   "rate": "31.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "MMK (Magnitogorsk)",
+   "rate": "36.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Russia"
+   ],
+   "originLabel": "Russia",
+   "mill": "All other companies",
+   "rate": "37.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Tatmetal",
+   "rate": "2.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "MMK Metalurji",
+   "rate": "10.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "4.A",
+    "4.B"
+   ],
+   "catLabel": "4.A/4.B",
+   "product": "Metallic coated",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "Tezcan / all other companies",
+   "rate": "11.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/1395",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "Organic-coated steel (OCS)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Union Steel China",
+   "rate": "0% AD (13.7% CVD)",
+   "form": "Ad valorem (AD + parallel CVD)",
+   "taric": "",
+   "reg": "AD 2025/1508 + CVD 2025/1506",
+   "status": "In force (renewed Jul 2025)",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "OCS",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Panhua / Chongqing Wanda / ZFTZ Jiaxinda",
+   "rate": "26.1% AD (29.7% CVD)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1508 + 2025/1506",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "OCS",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Zhejiang Huadong / Hangzhou P.R.P.T.",
+   "rate": "5.9% AD (23.8% CVD)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1508 + 2025/1506",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "OCS",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Angang Steel",
+   "rate": "16.2% AD (26.8% CVD)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1508 + 2025/1506",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "OCS",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Other named cooperating producers",
+   "rate": "0–16.2% AD (26.8% CVD)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1508 + 2025/1506",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "5"
+   ],
+   "catLabel": "5",
+   "product": "OCS",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "13.6% AD (44.7% CVD)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1508 + 2025/1506",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "6"
+   ],
+   "catLabel": "6",
+   "product": "Tin mill products (tinplate/ECCS)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Linqing Hengtai Metal Materials (new-exporter)",
+   "rate": "24.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1042; amended 2026/843",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "6"
+   ],
+   "catLabel": "6",
+   "product": "Tin mill products",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies (residual)",
+   "rate": "62.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/1042; amended 2026/843",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "Sampled producers (e.g. Baosteel) have individual rates — confirm in OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "7"
+   ],
+   "catLabel": "7",
+   "product": "Heavy (quarto) plate",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Named producers (e.g. Nanjing Iron & Steel)",
+   "rate": "~65.1% (lower end)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2017/336; ext. by review (2023)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "7"
+   ],
+   "catLabel": "7",
+   "product": "Heavy (quarto) plate",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "73.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2017/336; ext. by review (2023)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "TISCO / Shanxi Taigang Stainless & affiliates",
+   "rate": "18.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Fujian Fuxin / other cooperating",
+   "rate": "14.5–17.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "~42.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "Indonesia"
+   ],
+   "originLabel": "Indonesia",
+   "mill": "IRNC / Tsingshan Group subsidiaries / all",
+   "rate": "17.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408 (+ anti-circumvention via Türkiye 2023)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "Yieh United / Tang Eng & cooperating",
+   "rate": "4.1–6.0%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "8"
+   ],
+   "catLabel": "8",
+   "product": "Stainless HR sheet/coil",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "All other companies",
+   "rate": "~7.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/1408",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Named producers",
+   "rate": "below residual",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2015/1429; ext. 2021/2062",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "~24.4–25.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2015/1429; ext. 2021/2062",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "Cia Far / Yieh United / Tang Eng",
+   "rate": "0–6.8%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2015/1429; ext. 2021/2062",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "Jindal (India)",
+   "rate": "13.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2012 (18 Nov 2021)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "Chromeni / all other companies",
+   "rate": "45.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2012",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "Indonesia"
+   ],
+   "originLabel": "Indonesia",
+   "mill": "IRNC Group",
+   "rate": "10.2%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2012",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "9"
+   ],
+   "catLabel": "9",
+   "product": "Stainless CR sheet/coil",
+   "origins": [
+    "Indonesia"
+   ],
+   "originLabel": "Indonesia",
+   "mill": "Jindal Indonesia / all other companies",
+   "rate": "20.2%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2012",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "13"
+   ],
+   "catLabel": "13",
+   "product": "Rebar (high-fatigue concrete reinforcing bars)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All producers (high-fatigue only)",
+   "rate": "~22.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2016/1246; ext. by review (2023)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "13"
+   ],
+   "catLabel": "13",
+   "product": "Rebar",
+   "origins": [
+    "Belarus"
+   ],
+   "originLabel": "Belarus",
+   "mill": "All producers",
+   "rate": "~10.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2017/1019",
+   "status": "VERIFY current status (post expiry review)",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "22"
+   ],
+   "catLabel": "22",
+   "product": "Seamless stainless tubes & pipes",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Named producers (e.g. Changshu Walsin, Zhejiang Jiuli)",
+   "rate": "48.3% (lower end)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Orig. 2011; extended by reviews",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "22"
+   ],
+   "catLabel": "22",
+   "product": "Seamless stainless tubes & pipes",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "71.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Orig. 2011; extended by reviews",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "24"
+   ],
+   "catLabel": "24",
+   "product": "Other seamless tubes",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Producer-specific",
+   "rate": "~17.7–39.2%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Legacy; extended by reviews. New investigation opened 2025",
+   "status": "In force (new case pending)",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "25.A",
+    "25.B"
+   ],
+   "catLabel": "25.A/25.B",
+   "product": "Large welded tubes",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China (hist. Russia)",
+   "mill": "Producer-specific",
+   "rate": "confirm",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Legacy; confirm current status",
+   "status": "VERIFY",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "26"
+   ],
+   "catLabel": "26",
+   "product": "Other welded tubes",
+   "origins": [
+    "Belarus",
+    "China",
+    "Russia"
+   ],
+   "originLabel": "Belarus, China, Russia",
+   "mill": "Producer-specific",
+   "rate": "confirm",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Legacy; extended by reviews (case ref 2466)",
+   "status": "VERIFY",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Iron/steel fasteners (screws, bolts, washers; non-stainless)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Jiangsu Yongyi Fastener",
+   "rate": "22.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/191 (18 Feb 2022)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Fasteners",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Ningbo Jinding Fastening Piece",
+   "rate": "46.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/191",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Fasteners",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Wenzhou Junhao Industry",
+   "rate": "48.8%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/191",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Fasteners",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Other cooperating companies (long annex list)",
+   "rate": "39.6%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/191",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "Annex lists many named cooperating firms sharing this rate",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Fasteners",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "86.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2022/191",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Screws & bolts without heads",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Zhejiang Junyue Standard Part",
+   "rate": "54.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/2153 (eff. 23 Oct 2025)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Screws & bolts without heads",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Brother Group (3 entities)",
+   "rate": "57.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/2153",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Screws & bolts without heads",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Other cooperating companies",
+   "rate": "59.8%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/2153",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Screws & bolts without heads",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Chinafar Group / all other exporters",
+   "rate": "72.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/2153",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel track shoes (STS)",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All producers",
+   "rate": "62.5%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2025/2081 (eff. 20 Oct 2025)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "Applies where track-shoe component ≥31% of value; large cast STS excluded",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Utility-scale steel wind towers",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Chengxi Shipyard / Penglai Dajin / Suzhou Titan (named)",
+   "rate": "7.2–14.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2239 (17 Dec 2021); amд 2026/198",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel wind towers",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Other cooperating companies",
+   "rate": "11.2%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2239",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel wind towers",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "19.2%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2021/2239",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel road wheels",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Producer-specific",
+   "rate": "~50.3% (lower end)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/353 (2020)",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel road wheels",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "66.4%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2020/353",
+   "status": "In force",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding tube/pipe fittings",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Suzhou Yuli Pipeline / Jiangsu Judd Pipeline",
+   "rate": "30.7%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2017/141; renewed 2023/809 (13 Apr 2023)",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Alfa Laval, Kunshan Kinglai, Weifang Huoda, Yada Piping, Jiangsu Huayang",
+   "rate": "41.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Zhejiang Jndá Pipeline",
+   "rate": "48.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "Zhejiang Good Fittings",
+   "rate": "55.3%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China",
+   "mill": "All other companies",
+   "rate": "64.9%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "King Lai Hygienic Materials",
+   "rate": "0% (exempt)",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "Other producers",
+   "rate": "5.1–12.1%",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "2023/809",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Stainless butt-welding fittings",
+   "origins": [
+    "Malaysia"
+   ],
+   "originLabel": "Malaysia",
+   "mill": "(countervailing / anti-circumvention)",
+   "rate": "see reg",
+   "form": "CVD / circumvention",
+   "taric": "",
+   "reg": "2023/809 & circumvention regs",
+   "status": "In force",
+   "verify": false,
+   "verifyNote": "",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "NONE"
+   ],
+   "catLabel": "— (none)",
+   "product": "Steel ropes and cables",
+   "origins": [
+    "China"
+   ],
+   "originLabel": "China (+ circumvention extensions)",
+   "mill": "Producer-specific",
+   "rate": "confirm",
+   "form": "Ad valorem",
+   "taric": "",
+   "reg": "Legacy; extended by reviews",
+   "status": "VERIFY",
+   "verify": true,
+   "verifyNote": "verify vs OJ",
+   "terminated": false,
+   "residual": false
+  }
+ ],
+ "categoryMap": [
+  {
+   "cat": "1.A/1.B",
+   "name": "Non-alloy & other alloy HR sheets/strips",
+   "hasAD": "Yes",
+   "origins": "Brazil, Iran, Russia; Egypt, Japan, Vietnam; Türkiye"
+  },
+  {
+   "cat": "2",
+   "name": "Non-alloy & other alloy CR sheets",
+   "hasAD": "Yes",
+   "origins": "China, Russia; India, Japan, Taiwan, Türkiye, Vietnam"
+  },
+  {
+   "cat": "3.A",
+   "name": "Electrical sheets — non grain-oriented",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "3.B",
+   "name": "Electrical sheets — grain-oriented (GOES)",
+   "hasAD": "Yes",
+   "origins": "China, Japan, Korea, Russia, USA (MIP)"
+  },
+  {
+   "cat": "4.A/4.B",
+   "name": "Metallic coated sheets",
+   "hasAD": "Yes",
+   "origins": "China; Russia, Türkiye"
+  },
+  {
+   "cat": "5",
+   "name": "Organic coated sheets",
+   "hasAD": "Yes",
+   "origins": "China (AD + CVD)"
+  },
+  {
+   "cat": "6",
+   "name": "Tin mill products",
+   "hasAD": "Yes",
+   "origins": "China"
+  },
+  {
+   "cat": "7",
+   "name": "Non-alloy & other alloy quarto plates",
+   "hasAD": "Yes",
+   "origins": "China"
+  },
+  {
+   "cat": "8",
+   "name": "Stainless HR sheets & strips",
+   "hasAD": "Yes",
+   "origins": "China, Indonesia, Taiwan"
+  },
+  {
+   "cat": "9",
+   "name": "Stainless CR sheets & strips",
+   "hasAD": "Yes",
+   "origins": "China, Taiwan; India, Indonesia"
+  },
+  {
+   "cat": "10",
+   "name": "Stainless HR quarto plates",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "12",
+   "name": "Non-alloy & other alloy merchant bars & light sections",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "13",
+   "name": "Rebars",
+   "hasAD": "Yes (partial)",
+   "origins": "China (high-fatigue only); Belarus (verify)"
+  },
+  {
+   "cat": "14",
+   "name": "Stainless bars & light sections",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "15",
+   "name": "Stainless wire rod",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "16",
+   "name": "Non-alloy & other alloy wire rod",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "17",
+   "name": "Angles, shapes & sections (iron/non-alloy)",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "18",
+   "name": "Sheet piling",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "19",
+   "name": "Railway material",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "20",
+   "name": "Gas pipes",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "21",
+   "name": "Hollow sections",
+   "hasAD": "Verify",
+   "origins": "China (confirm)"
+  },
+  {
+   "cat": "22",
+   "name": "Seamless stainless tubes & pipes",
+   "hasAD": "Yes",
+   "origins": "China"
+  },
+  {
+   "cat": "24",
+   "name": "Other seamless tubes",
+   "hasAD": "Yes",
+   "origins": "China (new case pending)"
+  },
+  {
+   "cat": "25.A/25.B",
+   "name": "Large welded tubes",
+   "hasAD": "Verify",
+   "origins": "China (hist. Russia)"
+  },
+  {
+   "cat": "26",
+   "name": "Other welded tubes",
+   "hasAD": "Yes",
+   "origins": "Belarus, China, Russia (verify)"
+  },
+  {
+   "cat": "27",
+   "name": "Non-alloy & other alloy cold-finished bars",
+   "hasAD": "No",
+   "origins": "—"
+  },
+  {
+   "cat": "28",
+   "name": "Non-alloy steel wire",
+   "hasAD": "No",
+   "origins": "— (welding wire from China under 2026 registration)"
+  },
+  {
+   "cat": "—",
+   "name": "Outside safeguard: fasteners, screws, track shoes, wind towers, road wheels, tube fittings, ropes",
+   "hasAD": "Yes",
+   "origins": "See 'AD measures' tab, Part C"
+  }
+ ]
+}
