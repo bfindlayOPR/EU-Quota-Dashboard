@@ -741,22 +741,22 @@ def fetch_balance(sess, order, on=None, debug=False):
             print("     {} -> {}  {} t".format(p["start"], p["end"], p["val"]))
 
     if not periods:
-        return None, None
+        return None, None, None
 
     # 1. the period that actually contains today
     live = [p for p in periods if p["start"] <= on <= p["end"]]
     if live:
-        return live[0]["val"], live[0]["origin"]
+        return live[0]["val"], live[0]["origin"], live[0]["start"]
 
     # 2. otherwise the most recent period that has already started
     started = sorted((p for p in periods if p["start"] <= on),
                      key=lambda p: p["start"])
     if started:
-        return started[-1]["val"], started[-1]["origin"]
+        return started[-1]["val"], started[-1]["origin"], started[-1]["start"]
 
     # 3. only future periods exist -> report nothing rather than a full
     #    allocation. A visible gap beats a confidently wrong number.
-    return None, periods[0]["origin"]
+    return None, periods[0]["origin"], None
 
 
 def build_rows():
@@ -770,11 +770,13 @@ def build_rows():
         row = {"order": order, "cat": cat, "origin": origin,
                "category": CATEGORY_NAMES.get(cat, cat), "base": base}
         try:
-            bal, _live_origin = fetch_balance(sess, order)
+            bal, _live_origin, pstart = fetch_balance(sess, order)
             row["balance"] = bal
+            row["period_start"] = pstart
             row["error"] = None if bal is not None else "no balance returned"
         except Exception as e:
             row["balance"] = None
+            row["period_start"] = None
             row["error"] = str(e)
         if row["balance"] is not None and base:
             row["pct"] = max(0.0, row["balance"] / base)
@@ -993,6 +995,8 @@ tr:last-child td{border-bottom:none;}
 .bar .fill{position:absolute;left:0;top:0;bottom:0;}
 .bar.ok .fill{background:var(--ok);}.bar.warn .fill{background:var(--warn);}
 .bar.crit .fill{background:var(--crit);}.bar.err .fill{background:#bbb;}
+.bar.over .fill{background:repeating-linear-gradient(45deg,var(--ok) 0 6px,rgba(255,255,255,.45) 6px 12px),var(--ok);}
+.bar.over .pctlabel{background:#fff;border-radius:3px;padding:0 4px;top:2px;line-height:14px;}
 .pctlabel{position:absolute;right:6px;top:1px;font-size:11px;font-weight:700;color:var(--ink);}
 .r-crit td{background:#fef7f6;}.r-warn td{background:#fffaf0;}
 .errbox{margin-top:20px;background:var(--crit-bg);border:1px solid #f3c0bb;border-radius:10px;padding:12px 16px;font-size:13px;}
@@ -1079,7 +1083,8 @@ footer{margin-top:26px;color:var(--mut);font-size:12px;}
 <div class="brandbar"><img src="https://oprgroup.co.uk/wp-content/uploads/2024/01/OPR-LOGO-WHITE.svg" alt="OPR Group"><span class="brandsub">Steel Quota Dashboard</span></div>
 <header>
   <div><h1>EU Steel Safeguard &mdash; Quota Dashboard</h1>
-  <div class="sub">Live quota remaining per order number &middot; %%QLABEL%%</div></div>
+  <div class="sub">Live quota remaining per order number &middot; %%QLABEL%%</div>
+  <div class="sub">Unused tonnage carries into the next quarter, so a line can hold more than one quarter's allocation. Those show above 100% with a striped bar.</div></div>
   <div class="sub">Refreshed<br><strong>%%TS%%</strong></div>
 </header>
 <div class="summary">
@@ -1152,7 +1157,8 @@ def build_html(rows):
         b = band(r["pct"]); pct = r["pct"]
         width = 0 if pct is None else min(100, pct * 100)
         label = "-" if pct is None else "{:.0f}%".format(pct * 100)
-        return ('<div class="bar ' + b + '"><div class="fill" style="width:'
+        over = " over" if (pct is not None and pct > 1.0) else ""
+        return ('<div class="bar ' + b + over + '"><div class="fill" style="width:'
                 + "{:.1f}".format(width) + '%"></div>'
                 + '<span class="pctlabel">' + label + '</span></div>')
 
@@ -1710,15 +1716,29 @@ def sanity_check(rows, history):
         tot_now += now
         tot_prev += before
         if before > 0 and now > before * RISE_TOLERANCE:
-            risen.append((r["order"], r.get("origin", ""), before, now))
+            risen.append((r["order"], r.get("origin", ""), before, now,
+                          r.get("period_start")))
 
     # Two conditions, both required. Individual quotas DO rise mid-quarter when
     # the Commission returns unused volumes (e.g. 11 Sep 2026, 32 quotas rose)
     # but the total across the book still falls on such a day. Only a period
     # mix-up makes the WHOLE book gain tonnage at once.
     total_grew = tot_prev > 0 and tot_now > tot_prev * TOTAL_TOLERANCE
-    if len(risen) >= RISE_THRESHOLD and total_grew:
-        sample = "; ".join("{} ({}) {:.0f} -> {:.0f} t".format(*x) for x in risen[:5])
+    # Every balance is now read from the period whose dates contain today, and
+    # that period's start date is recorded. If every risen quota is confirmed
+    # to be reading the CURRENT quarter's period, the rise is a genuine top-up
+    # by the Commission (e.g. unused volumes from the previous quarter being
+    # carried over, as on 29 Oct 2026), not a period mix-up. Allow it through.
+    wrong_period = [x for x in risen if x[4] != qstart]
+    genuine_topup = bool(risen) and not wrong_period
+    if len(risen) >= RISE_THRESHOLD and total_grew and genuine_topup:
+        sample = "; ".join("{} ({}) {:.0f} -> {:.0f} t".format(*x[:4]) for x in risen[:5])
+        print("NOTICE: {} quotas rose and the book total went from {:,.0f} t to "
+              "{:,.0f} t, but every one of them is reading the current period "
+              "(starting {}). Treating this as a genuine top-up and publishing. "
+              "Examples: {}".format(len(risen), tot_prev, tot_now, qstart, sample))
+    elif len(risen) >= RISE_THRESHOLD and total_grew:
+        sample = "; ".join("{} ({}) {:.0f} -> {:.0f} t".format(*x[:4]) for x in risen[:5])
         problems.append(
             "{} quotas show a HIGHER balance than the snapshot of {}, and total "
             "remaining across the book ROSE from {:,.0f} t to {:,.0f} t. Balances "
