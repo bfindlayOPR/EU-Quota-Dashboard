@@ -1,5 +1,5 @@
 {
- "compiled": "2026-09-20",
+ "compiled": "2026-11-18",
  "measures": [
   {
    "cats": [
@@ -687,14 +687,77 @@
     "India"
    ],
    "originLabel": "India",
-   "mill": "All exporters",
+   "mill": "JSW Steel Ltd / JSW Steel Coated Products Ltd",
    "rate": "9.5%",
-   "form": "Ad valorem",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force (definitive Aug 2026)",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "Tata Steel (non-sampled cooperating)",
+   "rate": "9.5%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "India"
+   ],
+   "originLabel": "India",
+   "mill": "All other companies",
+   "rate": "9.5%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "Nippon Steel Corp / Daido Steel",
+   "rate": "27.9%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "Commission notice 27.9% (Aug disclosure 28.0%); verify vs OJ",
    "terminated": false,
    "residual": false
   },
@@ -708,14 +771,56 @@
     "Japan"
    ],
    "originLabel": "Japan",
-   "mill": "All exporters",
-   "rate": "28.0%",
-   "form": "Ad valorem",
+   "mill": "JFE Steel / Proterial (non-sampled cooperating)",
+   "rate": "27.9%",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Japan"
+   ],
+   "originLabel": "Japan",
+   "mill": "All other companies",
+   "rate": "27.9%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": true
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Taiwan"
+   ],
+   "originLabel": "Taiwan",
+   "mill": "China Steel Corp / Chung Hung Steel",
+   "rate": "20.7%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
    "terminated": false,
    "residual": false
   },
@@ -729,14 +834,14 @@
     "Taiwan"
    ],
    "originLabel": "Taiwan",
-   "mill": "China Steel Corp, Chung Hung Steel & cooperating",
+   "mill": "Synn Industrial (non-sampled cooperating)",
    "rate": "20.7%",
-   "form": "Ad valorem",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
    "terminated": false,
    "residual": false
   },
@@ -752,12 +857,12 @@
    "originLabel": "Taiwan",
    "mill": "All other companies",
    "rate": "27.0%",
-   "form": "Ad valorem",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
    "terminated": false,
    "residual": true
   },
@@ -771,14 +876,14 @@
     "Türkiye"
    ],
    "originLabel": "Türkiye",
-   "mill": "Tatmetal Çelik",
-   "rate": "5.6%",
-   "form": "Ad valorem",
+   "mill": "Borçelik Çelik Sanayi Ticaret",
+   "rate": "7.8%",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "Cut from 9.7% after Aug disclosure; verify vs OJ",
    "terminated": false,
    "residual": false
   },
@@ -792,14 +897,14 @@
     "Türkiye"
    ],
    "originLabel": "Türkiye",
-   "mill": "Other cooperating producers",
-   "rate": "7.3%",
-   "form": "Ad valorem",
+   "mill": "Tatmetal Çelik Sanayi ve Ticaret",
+   "rate": "3.0%",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "Cut from 5.6% after Aug disclosure; verify vs OJ",
    "terminated": false,
    "residual": false
   },
@@ -813,14 +918,35 @@
     "Türkiye"
    ],
    "originLabel": "Türkiye",
-   "mill": "Borçelik Çelik / all other exporters",
-   "rate": "9.7%",
-   "form": "Ad valorem",
+   "mill": "Erdemir Group / Atakaş / Yıldız Entegre / Gazi Metal (non-sampled cooperating)",
+   "rate": "4.9%",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "Cut from 7.3% after Aug disclosure; verify vs OJ",
+   "terminated": false,
+   "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Türkiye"
+   ],
+   "originLabel": "Türkiye",
+   "mill": "All other companies",
+   "rate": "7.8%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "Cut from 9.7% after Aug disclosure; verify vs OJ",
    "terminated": false,
    "residual": true
   },
@@ -834,16 +960,37 @@
     "Vietnam"
    ],
    "originLabel": "Vietnam",
-   "mill": "POSCO Vietnam & others",
+   "mill": "POSCO Vietnam / China Steel & Nippon Steel Vietnam / Hoa Sen Group",
    "rate": "16.0%",
-   "form": "Ad valorem",
+   "form": "Ad valorem (CIF Union frontier)",
    "taric": "",
-   "reg": "Definitive 2026 (confirm reg no.)",
-   "status": "In force",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
    "verify": true,
-   "verifyNote": "verify vs OJ",
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
    "terminated": false,
    "residual": false
+  },
+  {
+   "cats": [
+    "2"
+   ],
+   "catLabel": "2",
+   "product": "CR flat",
+   "origins": [
+    "Vietnam"
+   ],
+   "originLabel": "Vietnam",
+   "mill": "All other companies",
+   "rate": "16.0%",
+   "form": "Ad valorem (CIF Union frontier)",
+   "taric": "",
+   "reg": "OJ L 2026/2547 (16 Nov 2026)",
+   "status": "In force (definitive from 17 Nov 2026)",
+   "verify": true,
+   "verifyNote": "verify vs OJ; TARIC add'l codes from Annex",
+   "terminated": false,
+   "residual": true
   },
   {
    "cats": [
